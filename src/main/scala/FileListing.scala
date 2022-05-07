@@ -1,6 +1,6 @@
 import java.io.File
 
-object Main extends App {
+object FileListing extends App {
 
   def listFilesFromDir(dir: String): List[File] = {
     val file = new File(dir)
@@ -13,4 +13,6 @@ object Main extends App {
       case _ => List[File]()
     }
   }
+
+  listFilesFromDir(args(0))
 }

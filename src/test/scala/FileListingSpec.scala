@@ -2,9 +2,9 @@ import org.scalatest._
 import flatspec._
 import matchers._
 
-class MainSpec extends AnyFlatSpec with should.Matchers {
+class FileListingSpec extends AnyFlatSpec with should.Matchers {
 
-  val parser: Main.type = Main
+  val parser: FileListing.type = FileListing
 
   val directory = "C:\\Users\\a.szczepanik\\sandbox\\scala-academy-sandbox\\anja\\file-listing\\src"
   val main = "C:\\Users\\a.szczepanik\\sandbox\\scala-academy-sandbox\\anja\\file-listing\\src\\main"
