@@ -6,9 +6,9 @@ class FileListingSpec extends AnyFlatSpec with should.Matchers {
 
   val parser: FileListing.type = FileListing
 
-  val directory = "C:\\Users\\a.szczepanik\\sandbox\\scala-academy-sandbox\\anja\\file-listing\\src"
-  val main = "C:\\Users\\a.szczepanik\\sandbox\\scala-academy-sandbox\\anja\\file-listing\\src\\main"
-  val test = "C:\\Users\\a.szczepanik\\sandbox\\scala-academy-sandbox\\anja\\file-listing\\src\\test"
+  val directory = "C:\\Users\\a.szczepanik\\docker\\file-listing\\src"
+  val main = "C:\\Users\\a.szczepanik\\docker\\file-listing\\src\\main"
+  val test = "C:\\Users\\a.szczepanik\\docker\\file-listing\\src\\test"
   val actual: Seq[String] = parser.listFilesFromDir(directory).map((el) => el.toString)
 
   it should "check if file exist in result of method" in {
