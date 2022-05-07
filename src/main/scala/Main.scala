@@ -1,5 +1,16 @@
-object Main {
+import java.io.File
 
-  def getFileFromDir(dir: String) = List.empty[String]
+object Main extends App {
 
+  def getFileFromDir(dir: String): List[File] = {
+    val file = new File(dir)
+
+    dir match {
+      case dir if (file.exists && file.isDirectory) =>
+        file
+          .listFiles
+          .toList
+      case _ => List[File]()
+    }
+  }
 }
