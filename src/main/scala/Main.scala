@@ -2,7 +2,7 @@ import java.io.File
 
 object Main extends App {
 
-  def getFileFromDir(dir: String): List[File] = {
+  def listFilesFromDir(dir: String): List[File] = {
     val file = new File(dir)
 
     dir match {
