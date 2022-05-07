@@ -6,29 +6,30 @@ class FileListingSpec extends AnyFlatSpec with should.Matchers {
 
   val parser: FileListing.type = FileListing
 
-  val directory = "C:\\Users\\a.szczepanik\\docker\\file-listing\\src"
-  val main = "C:\\Users\\a.szczepanik\\docker\\file-listing\\src\\main"
-  val test = "C:\\Users\\a.szczepanik\\docker\\file-listing\\src\\test"
-  val actual: Seq[String] = parser.listFilesFromDir(directory).map((el) => el.toString)
+  val directory = "C:\\Users\\a.szczepanik\\docker\\file-listing"
+  val buildSbt = "build.sbt"
+  val readme = "README.md"
+  val actual: Seq[String] = parser.listFilesFromDir(directory)
+  val emptyDir: Seq[String] = parser.listFilesFromDir("")
 
   it should "check if file exist in result of method" in {
-    actual should contain(main)
-    actual should contain(test)
+    actual should contain(buildSbt)
+    actual should contain(readme)
   }
 
   it should "return empty sequence if no directory was provided" in {
-    parser.listFilesFromDir("") shouldBe Seq()
+    emptyDir shouldBe Seq.empty[String]
     Seq.empty shouldBe empty
   }
 
   it should "return the size of collection" in {
-    val listOfFiles = List("build.sbt", "Main", "MainSpec")
-    listOfFiles should have size 3
-    listOfFiles should not be empty
+    actual should have size 2
+    actual should not be empty
   }
 
   it should "return sequence of files contained in directory" in {
-    actual shouldBe Seq(main, test)
+    actual shouldBe Seq(buildSbt, readme)
+    actual should not be empty
   }
 
 }
