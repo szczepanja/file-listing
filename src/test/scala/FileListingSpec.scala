@@ -12,7 +12,7 @@ class FileListingSpec extends AnyFlatSpec with should.Matchers {
   val actual: Seq[String] = parser.listFilesFromDir(directory)
   val emptyDir: Seq[String] = parser.listFilesFromDir("")
 
-  it should "check if file exist in result of method" in {
+  it should "check if file exist in directory" in {
     actual should contain(buildSbt)
     actual should contain(readme)
   }
@@ -29,7 +29,6 @@ class FileListingSpec extends AnyFlatSpec with should.Matchers {
 
   it should "return sequence of files contained in directory" in {
     actual shouldBe Seq(buildSbt, readme)
-    actual should not be empty
   }
 
 }
